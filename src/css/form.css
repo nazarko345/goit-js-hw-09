@@ -1,0 +1,54 @@
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.submit-btn {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 95px;
+  height: 40px;
+  background: #4e75ff;
+  border-style: none;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.submit-btn:hover {
+  transition: all 0.3s ease-in-out;
+  background: #6c8cff;
+}
+
+.email-input {
+    width: 100%;
+    max-width: 360px;
+    height: 100%;
+    max-height: 40px;
+    padding: 8px;
+    
+}
+
+.message-textarea {
+  width: 100%;
+  max-width: 360px;
+  height: 100%;
+  max-height: 80px;
+}
+
+.labels {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  left: 0;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
