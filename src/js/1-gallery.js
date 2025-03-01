@@ -86,4 +86,10 @@ const markup = images
 
 galeryList.innerHTML = markup;
 
-const lightbox = new SimpleLightbox('.gallery a');
+const lightbox = new SimpleLightbox('.gallery a', {
+  captions: true,
+  captionSelector: 'img',
+  captionsData: 'alt',
+  captionDelay: 250,
+});
+const captionSelector = captionSelector;
