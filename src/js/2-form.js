@@ -3,7 +3,6 @@ const formData = {
   message: '',
 };
 
-const submitBtn = document.querySelector('.submit-btn');
 const form = document.querySelector('.feedback-form');
 const emailInput = document.querySelector('.email-input');
 const messageArea = document.querySelector('.message-textarea');
