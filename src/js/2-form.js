@@ -16,10 +16,24 @@ form.addEventListener('input', event => {
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  if (emailInput.value === '' || messageArea === '') {
+  if (emailInput.value === '' || messageArea.value === '') {
     alert('Fill please all fields');
+    return;
   }
-  console.log(formData);
-  localStorage.clear();
   form.reset();
+  console.log(formData);
+  formData.email = '';
+  formData.message = '';
+  localStorage.clear();
 });
+
+const existCheck = localStorage.getItem('feedback-form-state');
+
+if (existCheck) {
+  const parsedData = JSON.parse(existCheck);
+  emailInput.value = parsedData.email || '';
+  messageArea.value = parsedData.message || '';
+} else {
+  emailInput.value = '';
+  messageArea.value = '';
+}
