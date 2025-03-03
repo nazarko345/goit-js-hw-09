@@ -6,32 +6,35 @@ const formData = {
 const STORAGE_KEY = 'feedback-form-state';
 
 const form = document.querySelector('.feedback-form');
-const emailInput = document.querySelector('.email-input');
-const messageArea = document.querySelector('.message-textarea');
+
+const existCheck = localStorage.getItem(STORAGE_KEY);
+if (existCheck) {
+  Object.assign(formData, JSON.parse(existCheck));
+}
+
+form.email.value = formData.email || '';
+form.message.value = formData.message || '';
 
 form.addEventListener('input', event => {
+  if (event.target.name in formData) {
     formData[event.target.name] = event.target.value.trim();
     const jsonFormData = JSON.stringify(formData);
     localStorage.setItem(STORAGE_KEY, jsonFormData);
+  }
 });
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  if (emailInput.value === '' || messageArea.value === '') {
+
+  if (!formData.email || !formData.message) {
     alert('Fill please all fields');
     return;
   }
-  form.reset();
+
   console.log(formData);
+  form.reset();
+  localStorage.removeItem(STORAGE_KEY);
+
   formData.email = '';
   formData.message = '';
-  localStorage.removeItem(STORAGE_KEY);
 });
-
-const existCheck = localStorage.getItem('feedback-form-state');
-
-if (existCheck) {
-  const parsedData = JSON.parse(existCheck);
-  emailInput.value = parsedData.email || '';
-  messageArea.value = parsedData.message || '';
-}
